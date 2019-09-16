@@ -10,7 +10,7 @@ if type -P startlxde &>/dev/null; then
     echo "GUI is already installed";
 else
     echo "Install minimal GUI"
-    apt-get install -y lxde-core lightdm iceweasel synaptic
+    apt-get install -y lxde-core lightdm firefox-esr synaptic
 fi
 
 if grep "autologin-user=vagrant" /etc/lightdm/lightdm.conf &>/dev/null; then
@@ -39,7 +39,7 @@ fi
 if [ $(query-package leafpad) -eq 1 ]; then
     echo "Leafpad already installed"
 else
-    apt-get install -y leafpad
+    apt-get install -y gedit
 fi
 
 if [ $(query-package tilda) -eq 1 ]; then

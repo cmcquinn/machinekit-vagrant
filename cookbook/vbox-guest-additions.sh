@@ -9,9 +9,9 @@ if [ $(query-package virtualbox-guest-x11) -eq 1 ]; then
     echo "VirtualBox Guest Additions already installed"
 else
     sh -c \
-    "echo 'deb http://debian.inode.at/debian jessie-backports main contrib non-free' > \
+    "echo 'deb http://debian.inode.at/debian stretch-backports main contrib non-free' > \
     /etc/apt/sources.list.d/backports.list"
     apt-get update
     apt-get install linux-headers-$(uname -r)
-    apt-get install -y virtualbox-guest-utils virtualbox-guest-x11 virtualbox-guest-dkms -t jessie-backports
+    apt-get install -y virtualbox-guest-utils virtualbox-guest-x11 virtualbox-guest-dkms -t stretch-backports
 fi

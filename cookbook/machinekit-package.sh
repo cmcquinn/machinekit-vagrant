@@ -11,7 +11,7 @@ else
     echo "Adding Machinekit repository"
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 43DDF224
     sudo sh -c \
-    "echo 'deb http://deb.machinekit.io/debian jessie main' > \
+    "echo 'deb http://deb.machinekit.io/debian stretch main' > \
     /etc/apt/sources.list.d/machinekit.list"
     sudo apt-get update
 fi
