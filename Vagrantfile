@@ -13,8 +13,8 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "debian/stretch64"
-  config.vm.box_version = "9.9.0"
+  config.vm.box = "debian/buster64"
+  config.vm.box_version = "10.0.0"
 
   config.vagrant.plugins = "vagrant-vbguest"
 

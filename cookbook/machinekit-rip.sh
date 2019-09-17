@@ -3,7 +3,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 43DDF224
 sudo sh -c \
-     "echo 'deb http://deb.machinekit.io/debian stretch main' > \
+     "echo 'deb http://deb.machinekit.io/debian buster main' > \
     /etc/apt/sources.list.d/machinekit.list"
 sudo apt-get update
 
