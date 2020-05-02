@@ -13,10 +13,10 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "debian/buster64"
+  config.vm.box = "debian/contrib-buster64"
   config.vm.box_version = "10.0.0"
 
-  config.vagrant.plugins = "vagrant-vbguest"
+  # config.vagrant.plugins = "vagrant-vbguest"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -75,11 +75,12 @@ Vagrant.configure(2) do |config|
     s.privileged = false
     s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
   end
+  config.vm.provision "copy guest utils", type: "file", source: "/usr/share/virtualbox/VBoxGuestAdditions.iso", destination: "$HOME/"
   config.vm.provision "install dirmngr", type: "shell", inline: "sudo apt install -y dirmngr"
   config.vm.provision "copy-user-provision", type: "shell", path: "cookbook/copy-user-provision.sh"
   config.vm.provision "select-mirror", type: "shell", path: "cookbook/select-mirror.sh"
   config.vm.provision "gui", type: "shell", path: "cookbook/gui.sh"
-  # config.vm.provision "vbox-guest-additions", type: "shell", path: "cookbook/vbox-guest-additions.sh"
+  config.vm.provision "vbox-guest-additions", type: "shell", path: "cookbook/vbox-guest-additions.sh"
   config.vm.provision "machinekit-package", type: "shell", path: "cookbook/machinekit-package.sh"
   config.vm.provision "startx", type: "shell", path: "cookbook/startx.sh"
   config.vm.provision "qt-base", type: "shell", path: "cookbook/qt-base.sh"
